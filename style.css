@@ -106,15 +106,7 @@ section{ padding: 6rem 0; position: relative; }
 }
 .nav-inner{ max-width: var(--container); margin:0 auto; padding: .9rem 1.5rem; display:flex; align-items:center; justify-content:space-between; }
 .brand{ display:flex; align-items:center; gap:.6rem; text-decoration:none; font-family: var(--font-display); color: var(--bone); font-size: 1rem; letter-spacing:.03em; }
-.torch-icon{ position:relative; width:14px; height:20px; flex:0 0 auto; }
-.torch-icon .stick{ position:absolute; bottom:0; left:50%; transform:translateX(-50%); width:4px; height:12px; background: var(--stone-dim); }
-.torch-icon .flame{
-  position:absolute; top:0; left:50%; width:10px; height:10px;
-  background: linear-gradient(180deg, var(--ember-soft), var(--ember));
-  border-radius: 50% 50% 50% 0; transform: translateX(-50%) rotate(-45deg);
-  box-shadow: 0 0 8px var(--ember), 0 0 16px var(--ember-dim);
-  animation: flicker 1.6s ease-in-out infinite;
-}
+
 @keyframes flicker{
   0%,100%{ transform: translateX(-50%) rotate(-45deg) scale(1); opacity:1; }
   35%{ transform: translateX(-50%) rotate(-40deg) scale(.92); opacity:.85; }
@@ -160,8 +152,6 @@ section{ padding: 6rem 0; position: relative; }
    ABOUT
    ============================================================ */
 .about-grid{ display:grid; grid-template-columns: 200px 1fr; gap: 3rem; align-items:start; margin-top: 2.5rem; }
-.emblem{ width: 100%; aspect-ratio: 1; border: 3px solid var(--bg-panel-border); background: var(--bg-panel); display:grid; place-items:center; }
-.emblem-mark{ width: 56px; height: 56px; background: linear-gradient(135deg, var(--ember), var(--rune)); transform: rotate(45deg); box-shadow: 0 0 24px rgba(255,122,61,.25), 0 0 24px rgba(95,227,196,.15); }
 .about-body p{ font-size:.95rem; color: var(--stone); }
 .about-body p + p{ margin-top:1em; }
 
@@ -234,11 +224,44 @@ footer{ border-top: 3px solid var(--bg-panel-border); padding: 2.4rem 0; text-al
   .nav-links a{ width:100%; padding: .9rem 1.5rem; border-bottom:1px solid var(--bg-panel-border); }
   .nav-toggle{ display:flex; }
   .about-grid{ grid-template-columns: 1fr; }
-  .emblem{ width:110px; margin:0 auto; }
   .toolkit-grid{ grid-template-columns: 1fr; }
   .link-grid{ grid-template-columns: 1fr 1fr; }
   .project-head{ flex-direction:column; align-items:flex-start; }
 }
 @media (prefers-reduced-motion: reduce){
   *{ animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior:auto !important; }
+}
+.brand-logo {
+    width: 40px;
+    height: 40px;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.brand,
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.about-logo {
+    width: 220px;
+    height: 220px;
+    object-fit: contain;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    filter: drop-shadow(0 0 30px rgba(140, 40, 255, 0.35));
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%,100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
 }
